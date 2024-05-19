@@ -1,0 +1,26 @@
+{% extends 'base_.html' %}
+{% load static %}
+{% block title %} Add author {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="container-fluid">
+        <ul class="nav-list">
+          <li><a href="{% url 'books:home' %}" style="color: #6c5dd4">Home</a></li>
+          <li><a href="{% url 'books:book-list' %}" style="color: #6c5dd4">Books</a></li>
+          <li><a href="#">Authors</a></li>
+        </ul>
+      </div>
+    <div class="title">
+        <h3>
+            add Author *
+        </h3>
+    </div>
+    <form action="{% url 'books:add-author' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn ">save</button>
+    </form>
+</div>
+{% endblock %}
